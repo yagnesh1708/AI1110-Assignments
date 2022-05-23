@@ -1,0 +1,71 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{csquotes}
+\usepackage{comment}
+\usepackage{enumerate}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\let\vec\mathbf
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+ \title{Assignment 4}
+     \author{AKKASANI YAGNESH REDDY \\
+     cs21btech11003 \\}
+     
+     \begin{document}
+     \maketitle
+     \textbf{Question:}Show that
+     \begin{align}
+         \pr{A}=\pr{A|X\leq x}F(x)+\pr{A|X>x}[1-F(x)]
+         \end{align}
+\textbf{Solution:}Lets define a random variable Y such that,
+\begin{table}[h!]
+    %\centering
+    \begin{tabular}{|c|c|c|} \hline
+    \textbf{Variable} & \textbf{Value} & \textbf{description} \\ \hline
+    Y  & $1$ & If event A happens \\ \hline
+    Y  & $0$ & If event A does not happen \\ \hline
+    \end{tabular}
+    \end{table}\\
+Now lets take the given equation R.H.S.
+\begin{align}
+         &\pr{A|X\leq x}F(x)+\pr{A|X>x}[1-F(x)]\\
+         \Rightarrow &\pr{Y=1|X\leq x}F(x)+\pr{Y=1|X>x}[1-F(x)]
+ \end{align}
+By the definition of conditional probability.\\
+\begin{align}
+    \pr{Y=1|X\leq x}=\frac{\pr{(Y=1)(X\leq x)}}{\pr{X\leq x}} \\
+    \pr{Y=1|X>x}=\frac{\pr{(Y=1)(X>x)}}{\pr{X>x}}
+\end{align}
+Also by the definition of cumulative probability,
+\begin{align}
+    &\pr{X \leq x}=F(x) 
+    \end{align}
+By the definition of probability,    
+    \begin{align}
+    &\pr{X \leq x}+\pr{X>x}=1 
+    \end{align}
+   Substituting $7$ in $6$ we get,
+\begin{align}
+    &F(x)+\pr{X>x}=1 \\
+    \Rightarrow &\pr{X>x}=1-F(x) 
+\end{align}
+Substituting equations $4,5,6$ and $9$ in 3 we get,
+\begin{align}
+&\frac{\pr{(Y=1)(X\leq x)}}{F(x)}F(x)+ \frac{\pr{(Y=1)(X>x)}}{(1-F(x)}[1-F(x)] \\
+\Rightarrow &\pr{(Y=1)(X\leq x)} + \pr{(Y=1)(X>x)}\\
+\Rightarrow&\pr{Y=1}
+\end{align}
+\newpage
+We showed that R.H.S is the same as L.H.S,
+\begin{align}
+    \pr{Y=1}=\pr{Y=1}
+\end{align}
+       \centering
+       $\therefore$ \textbf{proved}.
+
+\end{document}
+     
