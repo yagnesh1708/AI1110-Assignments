@@ -1,0 +1,129 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass{beamer}
+\usetheme{CambridgeUS}
+\usepackage{csquotes}
+\usepackage{comment}
+\usepackage{enumerate}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\let\vec\mathbf
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+
+
+     \title{Assignment 4}
+     \author{AKKASANI YAGNESH REDDY \\
+     CS21BTECH11003 }
+     \date{\today}
+\logo{\large \LaTeX{}}
+     
+     \begin{document}
+     \begin{frame}
+     \maketitle    
+     \end{frame}
+     
+     \logo{}
+     
+     \begin{frame}{Outline}
+    \tableofcontents
+     \end{frame}
+     
+     \section{Question}
+     \begin{frame}{Question}
+     For a Poisson random variable $X$ with parameter $\lambda$ show that \\
+     \begin{align}
+    &(a)\pr{0<X<2\lambda} > \frac{(\lambda-1)}{\lambda}\\
+    &(b)E[X(X-1)]=\lambda^{2}\\
+    &(c)E[X(X-1)(X-2)]=\lambda^{3}
+    \end{align}\\
+     \end{frame}
+     \section{Solution}
+     \begin{frame}{Solution}
+         Given $X$ is a Poisson  random variable so,
+     \begin{align}
+\pr{X=x}&=\frac{e^{-\lambda}.\lambda^{x}}{x!}\\
+         E(X)&=\lambda\\
+         Var(X)&=\sigma_{X}^{2}=\lambda
+     \end{align}
+     \end{frame}
+     \begin{frame}{(a)}
+     \textbf{(a)}From Chebyshev's inequality we know that,\\
+for any $\epsilon>0$
+\begin{align}
+\pr{|X-\eta|\geq\epsilon}\leq\frac{\sigma_{X}^{2}}{\epsilon^{2}}
+\end{align}
+Also by definition of probability,
+\begin{align}
+    \pr{|X-\eta|\geq\epsilon}+\pr{|X-\eta|<\epsilon}=1
+    \end{align}
+    Substituting 8 in 7 the inequality becomes,
+    \begin{align}
+        \pr{|X-\eta|<\epsilon}>1-\frac{\sigma_{X}^{2}}{\epsilon^{2}}
+    \end{align}
+    \end{frame}
+    \begin{frame}
+     Since this is Poisson distribution,
+    \begin{align}
+  \eta&=\lambda\\
+  \sigma_{X}^{2}&=\lambda\\
+  \epsilon&=\lambda
+    \end{align}
+    Substituting values in the equation.
+    \begin{align}
+    \pr{|X-\lambda|<\lambda}>1-\frac{\lambda}{\lambda^{2}}\\
+    \Rightarrow\pr{|X-\lambda|<\lambda}>1-\frac{1}{\lambda}\\
+        \Rightarrow\pr{0<X<2\lambda}>1-\frac{1}{\lambda}
+    \end{align}
+    \textbf{Hence proved.}
+         \end{frame}
+         \begin{frame}{(b)}
+         \textbf{(b)}To show,
+\begin{align}
+E[X(X-1)]=\lambda^{2}
+\end{align}
+Lets use the definitions,
+\begin{align}
+E[X]=\sum^{x=\infty}_{x=0}x\frac{e^{-\lambda}.\lambda^{x}}{x!}  
+\end{align}
+Also one the property of mean is that,
+\begin{align}
+    E[g(x)]=\sum^{x=\infty}_{x=0}g(x)\frac{e^{-\lambda}.\lambda^{x}}{x!}  
+\end{align}
+    \end{frame}
+    \begin{frame}
+        Here $g(x)=x(x-1)$ substituting it,
+\begin{align}
+    &E[X(X-1)]=\sum^{x=\infty}_{x=2}x(x-1)\frac{e^{-\lambda}.\lambda^{x}}{x!} \\
+    \Rightarrow &E[X(X-1)]=e^{-\lambda}\lambda^{2}\sum^{x=\infty}_{x=2}\frac{.\lambda^{x-2}}{(x-2)!}
+\end{align}
+We know that by Taylors expansion,
+\begin{align}
+    e^{x}=\sum^{k=\infty}_{k=0}\frac{x^{k}}{k!}
+\end{align}
+\end{frame}
+\begin{frame}
+Which is same as 
+\begin{align}
+    e^{\lambda}=\sum^{x=\infty}_{x=2}\frac{.\lambda^{x-2}}{(x-2)!}
+\end{align}
+Substituting it,
+\begin{align}
+    &E[X(X-1)]=e^{-\lambda}\lambda^{2}e^{-\lambda}\\
+    \Rightarrow&E[X(X-1)]=\lambda^{2}
+\end{align}
+\textbf{Hence proved}
+    \end{frame}
+    \begin{frame}{(c)}
+    \textbf{(c)}  using the above results we get
+\begin{align}
+&E[X(X-1)(X-2)]=\sum^{x=\infty}_{x=3}x(x-1)(x-2)\frac{e^{-\lambda}.\lambda^{x}}{x!}\\
+ &E[X(X-1)(X-2)]=e^{-\lambda}\lambda^{3}\sum^{x=\infty}_{x=2}\frac{.\lambda^{x-3}}{(x-3)!}\\
+ &E[X(X-1)(X-)2]=e^{-\lambda}\lambda^{3}e^{-\lambda}\\
+ \Rightarrow&E[X(X-1)(X-2)]=\lambda^{3}
+\end{align}
+    \textbf{Hence proved.}
+    \end{frame}
+     
+     \end{document}
