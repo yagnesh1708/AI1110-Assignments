@@ -1,0 +1,79 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass{beamer}
+\usetheme{CambridgeUS}
+\usepackage{csquotes}
+\usepackage{comment}
+\usepackage{enumerate}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\let\vec\mathbf
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+
+
+     \title{Assignment 7}
+     \author{AKKASANI YAGNESH REDDY \\
+     CS21BTECH11003 }
+     \date{\today}
+\logo{\large \LaTeX{}}
+     
+     \begin{document}
+     \begin{frame}
+     \maketitle    
+     \end{frame}
+     
+     \logo{}
+     
+     \begin{frame}{Outline}
+    \tableofcontents
+     \end{frame}
+     
+     
+     \section{Question}
+     \begin{frame}
+          \textbf{Question:}Let $X$ and $Y$ be independent normal random variables with zero mean and unit variances.\\
+     (a)Find the p.d.f of $\frac{X}{|Y|}$
+     (b)Find the p.d.f of $\frac{|X|}{|Y|}$
+     \end{frame}
+     
+     \section{Solution:}
+     \begin{frame}
+\textbf{Solution:}Let the random variables $Z$ and $W$ be such that,
+     \begin{align}
+         Z=\frac{X}{|Y|}\\
+         W=\frac{|X|}{|Y|}
+          \end{align}
+    Given $X$ and $Y$ are normal distribution variables with mean $0$ and variance $1$. So their p.d.f are,
+    \begin{align}
+        f_{X}(x)=\frac{1}{\sqrt{2\pi}}e^{\frac{-x^{2}}{2}}\\
+        f_{Y}(y)=\frac{1}{\sqrt{2\pi}}e^{\frac{-y^{2}}{2}}
+        \end{align}         
+     \end{frame}
+     
+     \begin{frame}
+         So since $X$ and $Y$ are independent variables,
+     \begin{align}
+      f_{Z}(z)&=\int_{-\infty}^{\infty}f_{X}(x).f_{Y}(y)dy\\
+      f_{Z}(z)&=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{\frac{-(x^{2}+y^{2})}{2}}dy\\
+      f_{Z}(z)&=\int_{-\infty}^{\infty}f_{X}(zy).f_{Y}(y)dy\\
+     f_{Z}(z)&=\frac{1}{2\pi}\int_{-\infty}^{\infty}e^{\frac{-((zy)^{2}+y^{2})}{2}}dy\\
+     f_{Z}(z)&=\frac{1}{\pi}\int_{0}^{\infty}e^{\frac{-y^{2}((z)^{2}+1)}{2}}dy
+     \end{align}
+     \end{frame}
+     \begin{frame}
+     \begin{align}
+      f_{Z}(z)&=\frac{\sqrt{1+z^{2}}}{\pi}\int_{0}^{\infty}e^{\frac{-y^{2}}{2}}dy\\
+         f_{Z}(z)&=\frac{\sqrt{1+z^{2}}}{\pi}\sqrt{\frac{\pi}{2}}\\
+         f_{Z}(z)&=\sqrt{\frac{1+z^{2}}{2\pi}}
+     \end{align}
+     For $W$, $X$ can take negative values too so our integral of (a) becomes double
+     \begin{align}
+          f_{W}(w)&=2( f_{Z}(z))\\
+         f_{W}(w)&=\sqrt{\frac{2(1+w^{2})}{\pi}}
+     \end{align}
+     
+     \end{frame}
+     \end{document}
+     
