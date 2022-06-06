@@ -1,0 +1,51 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{csquotes}
+\usepackage{comment}
+\usepackage{enumerate}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\let\vec\mathbf
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+ \title{Assignment 8}
+     \author{AKKASANI YAGNESH REDDY \\
+     CS21BTECH11003 \\}
+     
+     \begin{document}
+     \maketitle
+     \textbf{Question:}Show that if $F(x, y, z)$ is a joint distribution. then for any $x_{1}\leq x_{2},y_{1}\leq y_{2},z_{1}\leq z_{2}$:
+     \begin{align}
+         F(x_{2},y_{2},z_{2})+F(x_{1},y_{1},z_{1})+F(x_{1},y_{2},z_{1})\nonumber\\+F(x_{2},y_{1},z_{1})-F(x_{1},y_{2},z_{2})-F(x_{2},y_{1},z_{2})\nonumber\\-F(x_{2},y_{2},z_{1})-F(x_{1},y_{1},z_{1})\geq 0
+         \end{align}
+        \textbf{Solution:}We know that, 
+    \begin{align}
+        F(x)=\pr{X\leq x}
+    \end{align}
+    Using this instead of $F$,
+    We also know that,
+    \begin{align}
+        0 \leq \pr{x_{1}\leq x\leq x_{2},y_{1}\leq y\leq y_{2},z_{1}\leq z\leq z_{2}}\\
+       =\pr{x\leq x_{2},y_{1}\leq y\leq y_{2},z_{1}\leq z\leq z_{2}\nonumber} \\
+        -\pr{x\leq x_{1},y_{1}\leq y\leq y_{2},z_{1}\leq z\leq z_{2}}\\
+        =\pr{x\leq x_{2},y\leq y_{2},z_{1}\leq z\leq z_{2}}\nonumber\\
+        -\pr{x\leq x_{2},y\leq y_{1},z_{1}\leq z\leq z_{2}}\nonumber\\
+        -\pr{x\leq x_{1},y\leq y_{2},z_{1}\leq z\leq z_{2}}\nonumber\\
+        +\pr{x\leq x_{1},y\leq y_{1},z_{1}\leq z\leq z_{2}}\\
+        =\pr{x\leq x_{2},y\leq y_{2},z\leq z_{2}}\nonumber\\
+        -\pr{x\leq x_{2},y\leq y_{2},z\leq z_{1}}\nonumber\\
+        -\pr{x\leq x_{2},y\leq y_{1},z\leq z_{2}}\nonumber\\
+        +\pr{x\leq x_{2},y\leq y_{1},z\leq z_{1}}\nonumber\\
+        -\pr{x\leq x_{1},y\leq y_{2},z\leq z_{2}}\nonumber\\
+        +\pr{x\leq x_{1},y\leq y_{2},z\leq z_{1}}\nonumber\\
+        +\pr{x\leq x_{1},y\leq y_{1},z\leq z_{2}}\nonumber\\
+        -\pr{x\leq x_{1},y\leq y_{1},z\leq z_{1}}
+        \end{align}
+        Hence proved because the above is $\geq0$ and is same as given in question that is,
+         \begin{align}
+         F(x_{2},y_{2},z_{2})+F(x_{1},y_{1},z_{1})+F(x_{1},y_{2},z_{1})\nonumber\\+F(x_{2},y_{1},z_{1})-F(x_{1},y_{2},z_{2})-F(x_{2},y_{1},z_{2})\nonumber\\-F(x_{2},y_{2},z_{1})-F(x_{1},y_{1},z_{1})\geq 0
+         \end{align}
+     \end{document}
